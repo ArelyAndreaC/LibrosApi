@@ -158,8 +158,20 @@ namespace LibrosApi.Controllers
 
         // PUT api/<LibrosController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Libros actualizado)
         {
+            for (int i = 0; i < inventario.Count; i++)
+            {
+                if (inventario[i].id == id)
+                {
+                    // Actualizamos el objeto en esa posición
+                    inventario[i] = actualizado;
+                    return Ok(); // Salimos del método inmediatamente
+                }
+            }
+            
+            // Si terminó el ciclo y no encontró nada
+            return NotFound();
         }
 
         // DELETE api/<LibrosController>/5
