@@ -162,7 +162,7 @@ namespace LibrosApi.Controllers
         {
             for (int i = 0; i < inventario.Count; i++)
             {
-                if (inventario[i].Id == Id)
+                if (inventario[i].Id == id)
                 {
                     // Actualizamos el objeto en esa posición
                     inventario[i] = actualizado;
